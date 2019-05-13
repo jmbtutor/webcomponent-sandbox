@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/jmbtutor/webcomponent-sandbox/issues"
   },
-  "homepage": "https://github.com/jmbtutor/webcomponent-sandbox#readme"
+  "homepage": "https://github.com/jmbtutor/webcomponent-sandbox#readme",
+  "dependencies": {
+    "lit-element": "^2.1.0"
+  }
 }
