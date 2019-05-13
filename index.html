@@ -4,9 +4,23 @@
     <meta charset="UTF-8" />
     <title>Web Components Test</title>
     <script type="module" src="./hard-coded-list.js"></script>
+    <script type="module" src="./single-slot.js"></script>
   </head>
   <body>
     <h2>hard-coded-list</h2>
     <hard-coded-list></hard-coded-list>
+    <h2>single-slot</h2>
+    <h3>empty</h3>
+    <single-slot></single-slot>
+    <h3>text</h3>
+    <single-slot>innerHTML</single-slot>
+    <h3>HTML</h3>
+    <single-slot>
+      <div>innerHTML div</div>
+    </single-slot>
+    <h3>Custom Element</h3>
+    <single-slot>
+      <hard-coded-list></hard-coded-list>
+    </single-slot>
   </body>
 </html>
