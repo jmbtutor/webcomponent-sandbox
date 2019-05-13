@@ -1,0 +1,25 @@
+{
+  "name": "webcomponent-sandbox",
+  "version": "0.0.1",
+  "description": "Web Components sandbox (for testing only)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmbtutor/webcomponent-sandbox.git"
+  },
+  "keywords": [
+    "web",
+    "components",
+    "sandbox"
+  ],
+  "author": "Johann Tutor",
+  "license": "UNLICENSED",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/jmbtutor/webcomponent-sandbox/issues"
+  },
+  "homepage": "https://github.com/jmbtutor/webcomponent-sandbox#readme"
+}
