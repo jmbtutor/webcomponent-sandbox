@@ -5,10 +5,12 @@
     <title>Web Components Test</title>
     <script type="module" src="./hard-coded-list.js"></script>
     <script type="module" src="./single-slot.js"></script>
+    <script type="module" src="./single-slot-with-default.js"></script>
   </head>
   <body>
     <h2>hard-coded-list</h2>
     <hard-coded-list></hard-coded-list>
+
     <h2>single-slot</h2>
     <h3>empty</h3>
     <single-slot></single-slot>
@@ -22,5 +24,19 @@
     <single-slot>
       <hard-coded-list></hard-coded-list>
     </single-slot>
+
+    <h2>single-slot-with-default</h2>
+    <h3>empty</h3>
+    <single-slot-with-default></single-slot-with-default>
+    <h3>text</h3>
+    <single-slot-with-default>innerHTML</single-slot-with-default>
+    <h3>HTML</h3>
+    <single-slot-with-default>
+      <div>innerHTML div</div>
+    </single-slot-with-default>
+    <h3>Custom Element</h3>
+    <single-slot-with-default>
+      <hard-coded-list></hard-coded-list>
+    </single-slot-with-default>
   </body>
 </html>
