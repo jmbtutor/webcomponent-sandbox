@@ -57,5 +57,13 @@
     <with-attributes count="notnumber"></with-attributes>
     <h3>both</h3>
     <with-attributes value="othervalue" count="1"></with-attributes>
+    <h3>setAttribute</h3>
+    <label>value: <input oninput="document.getElementById('with-attributes-setattribute').setAttribute('value', this.value)" /></label>
+    <label>count: <input oninput="document.getElementById('with-attributes-setattribute').setAttribute('count', this.value)" /></label>
+    <with-attributes id="with-attributes-setattribute" value="othervalue" count="1"></with-attributes>
+    <h3>set property</h3>
+    <label>value: <input oninput="document.getElementById('with-attributes-setproperty').value = this.value" /></label>
+    <label>count: <input oninput="document.getElementById('with-attributes-setproperty').count = this.value" /></label>
+    <with-attributes id="with-attributes-setproperty" value="othervalue" count="1"></with-attributes>
   </body>
 </html>
