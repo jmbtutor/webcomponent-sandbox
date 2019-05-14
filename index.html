@@ -7,6 +7,7 @@
     <script type="module" src="./single-slot.js"></script>
     <script type="module" src="./single-slot-with-default.js"></script>
     <script type="module" src="./with-attributes.js"></script>
+    <script type="module" src="./outgoing-event.js"></script>
   </head>
   <body>
     <h1>Web Components Test</h1>
@@ -65,5 +66,18 @@
     <label>value: <input oninput="document.getElementById('with-attributes-setproperty').value = this.value" /></label>
     <label>count: <input oninput="document.getElementById('with-attributes-setproperty').count = this.value" /></label>
     <with-attributes id="with-attributes-setproperty" value="othervalue" count="1"></with-attributes>
+
+    <!-- outgoing-event -->
+    <h2>outgoing-event</h2>
+    <h3>no listeners</h3>
+    <outgoing-event></outgoing-event>
+    <h3>addEventListener</h3>
+    <outgoing-event id="outgoing-event-addEventListener"></outgoing-event>
+    <script>
+      document.getElementById("outgoing-event-addEventListener").addEventListener('button-pressed', (e) => console.log("outgoing-event-addEventListener fired:", e));
+    </script>
+    <h3>attribute</h3>
+    <outgoing-event id="outgoing-event-attribute" oninput="console.log('outgoing-event-attribute input', event)" onclick="console.log('outgoing-event-attribute click', event)"></outgoing-event><br />
+    <!-- Must use <a href="https://github.com/Polymer/lit-element/issues/653">addEventListener</a> for custom events -->
   </body>
 </html>
