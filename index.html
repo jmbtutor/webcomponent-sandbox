@@ -8,6 +8,7 @@
     <script type="module" src="./single-slot-with-default.js"></script>
     <script type="module" src="./with-attributes.js"></script>
     <script type="module" src="./outgoing-event.js"></script>
+    <script type="module" src="./incoming-event.js"></script>
   </head>
   <body>
     <h1>Web Components Test</h1>
@@ -79,5 +80,11 @@
     <h3>attribute</h3>
     <outgoing-event id="outgoing-event-attribute" oninput="console.log('outgoing-event-attribute input', event)" onclick="console.log('outgoing-event-attribute click', event)"></outgoing-event><br />
     <!-- Must use <a href="https://github.com/Polymer/lit-element/issues/653">addEventListener</a> for custom events -->
+
+    <!-- incoming-event -->
+    <h2>incoming-event</h2>
+    <h3>with input</h3>
+    <incoming-event></incoming-event><br />
+    <input oninput="this.dispatchEvent(new CustomEvent('incoming-custom-event', { detail: this.value, bubbles: true, composed: true }))" />
   </body>
 </html>
