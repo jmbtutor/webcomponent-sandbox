@@ -11,6 +11,13 @@
     <script type="module" src="./with-attributes.js"></script>
     <script type="module" src="./outgoing-event.js"></script>
     <script type="module" src="./incoming-event.js"></script>
+    <style>
+      output.event-output {
+        display: block;
+        max-height: 10em;
+        overflow: auto;
+      }
+    </style>
   </head>
   <body>
     <h1>Web Components Test</h1>
@@ -92,13 +99,24 @@
     <outgoing-event></outgoing-event>
 
     <h3>addEventListener</h3>
-    <outgoing-event id="outgoing-event-addEventListener"></outgoing-event>
+    <outgoing-event id="outgoing-event-addEventListener"></outgoing-event><br />
+    <output id="outgoing-event-addEventListener-output" class="event-output"></output>
     <script>
-      document.getElementById("outgoing-event-addEventListener").addEventListener('button-pressed', (e) => console.log("outgoing-event-addEventListener fired:", e));
+      document.getElementById('outgoing-event-addEventListener').addEventListener('button-pressed', (e) => document.getElementById('outgoing-event-addEventListener-output').innerHTML += `outgoing-event-addEventListener fired: ${e.type} ${JSON.stringify(e.detail)}<br />`);
     </script>
 
     <h3>attribute</h3>
-    <outgoing-event id="outgoing-event-attribute" oninput="console.log('outgoing-event-attribute input', event)" onclick="console.log('outgoing-event-attribute click', event)"></outgoing-event><br />
+    <outgoing-event id="outgoing-event-attribute" oninput="handleOutgoingEventAttributeInput(event)" onclick="handleOutgoingEventAttributeClick"></outgoing-event><br />
+    <output id="outgoing-event-attribute-output" class="event-output"></output>
+    <script>
+      function handleOutgoingEventAttributeInput(event) {
+        document.getElementById('outgoing-event-attribute-output').innerHTML += `outgoing-event-attribute fired: ${event.type} ${JSON.stringify(event.detail)}<br />`;
+      }
+
+      function handleOutgoingEventAttributeClick(event) {
+        document.getElementById('outgoing-event-attribute-output').innerHTML += `outgoing-event-attribute fired: ${event.type} ${JSON.stringify(event.detail)}<br />`;
+      }
+    </script>
     <!-- Must use <a href="https://github.com/Polymer/lit-element/issues/653">addEventListener</a> for custom events -->
 
     <!-- incoming-event -->
