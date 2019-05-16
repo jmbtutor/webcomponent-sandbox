@@ -124,6 +124,11 @@
 
     <h3>with input</h3>
     <incoming-event></incoming-event><br />
-    <input oninput="this.dispatchEvent(new CustomEvent('incoming-custom-event', { detail: this.value, bubbles: true, composed: true }))" />
+    <input oninput="handleIncomingEventInputInput.call(this, event)" />
+    <script>
+      function handleIncomingEventInputInput(event) {
+        this.dispatchEvent(new CustomEvent('incoming-custom-event', { detail: this.value, bubbles: true, composed: true }))
+      }
+    </script>
   </body>
 </html>
