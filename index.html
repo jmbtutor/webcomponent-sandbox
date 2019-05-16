@@ -21,14 +21,18 @@
 
     <!-- single-slot -->
     <h2>single-slot</h2>
+
     <h3>empty</h3>
     <single-slot></single-slot>
+
     <h3>text</h3>
     <single-slot>innerHTML</single-slot>
+
     <h3>HTML</h3>
     <single-slot>
       <div>innerHTML div</div>
     </single-slot>
+
     <h3>Custom Element</h3>
     <single-slot>
       <hard-coded-list></hard-coded-list>
@@ -36,14 +40,18 @@
 
     <!-- single-slot-with-default -->
     <h2>single-slot-with-default</h2>
+
     <h3>empty</h3>
     <single-slot-with-default></single-slot-with-default>
+
     <h3>text</h3>
     <single-slot-with-default>innerHTML</single-slot-with-default>
+
     <h3>HTML</h3>
     <single-slot-with-default>
       <div>innerHTML div</div>
     </single-slot-with-default>
+
     <h3>Custom Element</h3>
     <single-slot-with-default>
       <hard-coded-list></hard-coded-list>
@@ -51,20 +59,27 @@
 
     <!-- with-attributes -->
     <h2>with-attributes</h2>
+
     <h3>default</h3>
     <with-attributes></with-attributes>
+
     <h3>value</h3>
     <with-attributes value="othervalue <br>"></with-attributes>
+
     <h3>count</h3>
     <with-attributes count="5"></with-attributes>
+
     <h3>count (not number)</h3>
     <with-attributes count="notnumber"></with-attributes>
+
     <h3>both</h3>
     <with-attributes value="othervalue" count="1"></with-attributes>
+
     <h3>setAttribute</h3>
     <label>value: <input oninput="document.getElementById('with-attributes-setattribute').setAttribute('value', this.value)" /></label>
     <label>count: <input oninput="document.getElementById('with-attributes-setattribute').setAttribute('count', this.value)" /></label>
     <with-attributes id="with-attributes-setattribute" value="othervalue" count="1"></with-attributes>
+
     <h3>set property</h3>
     <label>value: <input oninput="document.getElementById('with-attributes-setproperty').value = this.value" /></label>
     <label>count: <input oninput="document.getElementById('with-attributes-setproperty').count = this.value" /></label>
@@ -72,19 +87,23 @@
 
     <!-- outgoing-event -->
     <h2>outgoing-event</h2>
+
     <h3>no listeners</h3>
     <outgoing-event></outgoing-event>
+
     <h3>addEventListener</h3>
     <outgoing-event id="outgoing-event-addEventListener"></outgoing-event>
     <script>
       document.getElementById("outgoing-event-addEventListener").addEventListener('button-pressed', (e) => console.log("outgoing-event-addEventListener fired:", e));
     </script>
+
     <h3>attribute</h3>
     <outgoing-event id="outgoing-event-attribute" oninput="console.log('outgoing-event-attribute input', event)" onclick="console.log('outgoing-event-attribute click', event)"></outgoing-event><br />
     <!-- Must use <a href="https://github.com/Polymer/lit-element/issues/653">addEventListener</a> for custom events -->
 
     <!-- incoming-event -->
     <h2>incoming-event</h2>
+
     <h3>with input</h3>
     <incoming-event></incoming-event><br />
     <input oninput="this.dispatchEvent(new CustomEvent('incoming-custom-event', { detail: this.value, bubbles: true, composed: true }))" />
