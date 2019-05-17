@@ -8,6 +8,7 @@
     <script type="module" src="./hard-coded-list.js"></script>
     <script type="module" src="./single-slot.js"></script>
     <script type="module" src="./single-slot-with-default.js"></script>
+    <script type="module" src="./named-slot.js"></script>
     <script type="module" src="./with-attributes.js"></script>
     <script type="module" src="./outgoing-event.js"></script>
     <script type="module" src="./incoming-event.js"></script>
@@ -64,6 +65,12 @@
       <hard-coded-list></hard-coded-list>
     </single-slot-with-default>
 
+    <!-- name-slot -->
+    <h2>named-slot</h2>
+
+    <h3>empty</h3>
+    <named-slot></named-slot>
+
     <!-- with-attributes -->
     <h2>with-attributes</h2>
 
@@ -102,19 +109,19 @@
     <outgoing-event id="outgoing-event-addEventListener"></outgoing-event><br />
     <output id="outgoing-event-addEventListener-output" class="event-output"></output>
     <script>
-      document.getElementById('outgoing-event-addEventListener').addEventListener('button-pressed', (e) => document.getElementById('outgoing-event-addEventListener-output').innerHTML += `outgoing-event-addEventListener fired: ${e.type} ${JSON.stringify(e.detail)}<br />`);
+      document.getElementById('outgoing-event-addEventListener').addEventListener('button-pressed', (e) => document.getElementById('outgoing-event-addEventListener-output').innerHTML += `outgoing-event-addEventListener fired: ${e.type} ${JSON.stringify(e.detail)} ${event.target.tagName}<br />`);
     </script>
 
     <h3>attribute</h3>
-    <outgoing-event id="outgoing-event-attribute" oninput="handleOutgoingEventAttributeInput(event)" onclick="handleOutgoingEventAttributeClick"></outgoing-event><br />
+    <outgoing-event id="outgoing-event-attribute" oninput="handleOutgoingEventAttributeInput(event)" onclick="handleOutgoingEventAttributeClick(event)"></outgoing-event><br />
     <output id="outgoing-event-attribute-output" class="event-output"></output>
     <script>
       function handleOutgoingEventAttributeInput(event) {
-        document.getElementById('outgoing-event-attribute-output').innerHTML += `outgoing-event-attribute fired: ${event.type} ${JSON.stringify(event.detail)}<br />`;
+        document.getElementById('outgoing-event-attribute-output').innerHTML += `outgoing-event-attribute fired: ${event.type} ${JSON.stringify(event.detail)} ${event.target.tagName}<br />`;
       }
 
       function handleOutgoingEventAttributeClick(event) {
-        document.getElementById('outgoing-event-attribute-output').innerHTML += `outgoing-event-attribute fired: ${event.type} ${JSON.stringify(event.detail)}<br />`;
+        document.getElementById('outgoing-event-attribute-output').innerHTML += `outgoing-event-attribute fired: ${event.type} ${JSON.stringify(event.detail)} ${event.target.tagName}<br />`;
       }
     </script>
     <!-- Must use <a href="https://github.com/Polymer/lit-element/issues/653">addEventListener</a> for custom events -->
@@ -130,5 +137,8 @@
         this.dispatchEvent(new CustomEvent('incoming-custom-event', { detail: this.value, bubbles: true, composed: true }))
       }
     </script>
+
+      <!-- with-styles -->
+
   </body>
 </html>
