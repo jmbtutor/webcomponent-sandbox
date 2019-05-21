@@ -9,6 +9,7 @@ class OutgoingEvent extends LitElement {
   }
 
   buttonClick(e) {
+    console.log('outgoing-event', e.type, e.detail, e.target.tagName);
     this.dispatchEvent(new CustomEvent('button-pressed', { detail: e.detail }));
   }
 }
