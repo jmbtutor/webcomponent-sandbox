@@ -29,19 +29,37 @@
 
     <!-- single-slot -->
     <h2>single-slot</h2>
+    <!-- The <single-slot> component contains a template with a single empty
+         unnamed <slot>.
+      -->
 
     <h3>empty</h3>
+    <!-- This experiment explores the <single-slot> component with no child nodes.
+         The result is no child nodes replacing the <slot>.
+      -->
     <single-slot></single-slot>
 
     <h3>text</h3>
+    <!-- This experiment explores the <single-slot> component with a text child
+         node in the light DOM.
+         The result is the text node replacing the <slot>.
+      -->
     <single-slot>innerHTML</single-slot>
 
     <h3>HTML</h3>
+    <!-- This experiment explores the <single-slot> component with an HTML
+         element child node in the light DOM.
+         The result is the HTML element replacing the <slot>.
+      -->
     <single-slot>
       <div>innerHTML div</div>
     </single-slot>
 
     <h3>Custom Element</h3>
+    <!-- This experiment explores the <single-slot> component with a custom
+         element as a child node in the light DOM.
+         The result is the custom element replacing the <slot>.
+      -->
     <single-slot>
       <hard-coded-list></hard-coded-list>
     </single-slot>
