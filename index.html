@@ -209,8 +209,18 @@
 
     <!-- incoming-event -->
     <h2>incoming-event</h2>
+    <!-- The <incoming-event> component listens for the "incoming-custom-event"
+         custom event on the document and displays its details.
+      -->
 
     <h3>with input</h3>
+    <!-- This experiment explores the event handling of <incoming-event> by
+         dispatching the "incoming-custom-event" custom event from an input box
+         with the input box's contents as the event's details and letting it
+         bubble up to the document.
+         Result: the event is intercepted by the incoming-event element and its
+         details are displayed.
+      -->
     <incoming-event></incoming-event><br />
     <input oninput="handleIncomingEventInputInput.call(this, event)" />
     <script>
