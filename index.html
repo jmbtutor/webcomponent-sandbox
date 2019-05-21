@@ -108,28 +108,61 @@
 
     <!-- with-attributes -->
     <h2>with-attributes</h2>
+    <!-- The <with-attributes> component is configurable through the "value"
+         and "count" attributes. The text of both is displayed in its template.
+         "value" is typed as a String, and "count" is typed as a Number.
+      -->
 
     <h3>default</h3>
+    <!-- This experiment explores the <with-attributes> component with no attrributes.
+         Result: the initial values of the reflected properties are applied.
+      -->
     <with-attributes></with-attributes>
 
     <h3>value</h3>
+    <!-- This experiment explores the <with-attributes> component with the
+         "value" attribute, where the value has some HTML in it.
+         Result: the value of the "value" attribute is displayed verbatim.
+      -->
     <with-attributes value="othervalue <br>"></with-attributes>
 
     <h3>count</h3>
+    <!-- This experiment explores the <with-attributes> component with the
+         "count" attribute, where the value is a number.
+         Result: the value is displayed properly. The "value" attribute
+         takes on its default value.
+      -->
     <with-attributes count="5"></with-attributes>
 
     <h3>count (not number)</h3>
+    <!-- This experiment explores the <with-attributes> component with the
+         "count" attribute, where the value is not a number.
+         Result: the value is coerced to NaN and is displayed as such. The
+         "value" attribute takes on its default attribute.
+      -->
     <with-attributes count="notnumber"></with-attributes>
 
     <h3>both</h3>
+    <!-- This experiment explores the <with-attributes> component wth both
+         the "value" and "count" attributes set.
+         Result: both attributes take on the given values.
+      -->
     <with-attributes value="othervalue" count="1"></with-attributes>
 
     <h3>setAttribute</h3>
+    <!-- This experiment explores the <with-attributes> component and setting
+         the attributes dynamically using JavaScript.
+         Result: the attributes are set and coerced as expected.
+      -->
     <label>value: <input oninput="document.getElementById('with-attributes-setattribute').setAttribute('value', this.value)" /></label>
     <label>count: <input oninput="document.getElementById('with-attributes-setattribute').setAttribute('count', this.value)" /></label>
     <with-attributes id="with-attributes-setattribute" value="othervalue" count="1"></with-attributes>
 
     <h3>set property</h3>
+    <!-- This experiment explores the <with-attributes> component and setting
+         its properties dynamically using JavaScript.
+         Result: the values are used verbatim and not coerced.
+      -->
     <label>value: <input oninput="document.getElementById('with-attributes-setproperty').value = this.value" /></label>
     <label>count: <input oninput="document.getElementById('with-attributes-setproperty').count = this.value" /></label>
     <with-attributes id="with-attributes-setproperty" value="othervalue" count="1"></with-attributes>
