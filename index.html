@@ -35,21 +35,21 @@
 
     <h3>empty</h3>
     <!-- This experiment explores the <single-slot> component with no child nodes.
-         The result is no child nodes replacing the <slot>.
+         Result: no child nodes replace the <slot>.
       -->
     <single-slot></single-slot>
 
     <h3>text</h3>
     <!-- This experiment explores the <single-slot> component with a text child
          node in the light DOM.
-         The result is the text node replacing the <slot>.
+         Result: the text node replaces the <slot>.
       -->
     <single-slot>innerHTML</single-slot>
 
     <h3>HTML</h3>
     <!-- This experiment explores the <single-slot> component with an HTML
          element child node in the light DOM.
-         The result is the HTML element replacing the <slot>.
+         Result: the HTML element replaces the <slot>.
       -->
     <single-slot>
       <div>innerHTML div</div>
@@ -58,7 +58,7 @@
     <h3>Custom Element</h3>
     <!-- This experiment explores the <single-slot> component with a custom
          element as a child node in the light DOM.
-         The result is the custom element replacing the <slot>.
+         Result: the custom element replaces the <slot>.
       -->
     <single-slot>
       <hard-coded-list></hard-coded-list>
