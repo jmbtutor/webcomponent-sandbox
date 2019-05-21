@@ -169,11 +169,21 @@
 
     <!-- outgoing-event -->
     <h2>outgoing-event</h2>
+    <!-- The <outgoing-event> component contains an input box and a button.
+         The "button-pressed" custom event is fired when the button is clicked.
+      -->
 
     <h3>no listeners</h3>
+    <!-- This experiment explores the <outgoing-event> component with no listeners.
+         Result: No visible action.
+      -->
     <outgoing-event></outgoing-event>
 
     <h3>addEventListener</h3>
+    <!-- This experiment explores the <outgoing-event> component with a
+         listener for the "button-pressed" custom event bound from the outside.
+         Result: the listener is called.
+      -->
     <outgoing-event id="outgoing-event-addEventListener"></outgoing-event><br />
     <output id="outgoing-event-addEventListener-output" class="event-output"></output>
     <script>
@@ -181,6 +191,9 @@
     </script>
 
     <h3>attribute</h3>
+    <!-- This experiment explores the <outgoing-event> component with an on-event attribute listener.
+         Result: only native events can be captured.
+      -->
     <outgoing-event id="outgoing-event-attribute" oninput="handleOutgoingEventAttributeInput(event)" onclick="handleOutgoingEventAttributeClick(event)"></outgoing-event><br />
     <output id="outgoing-event-attribute-output" class="event-output"></output>
     <script>
