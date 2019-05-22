@@ -8,6 +8,7 @@
     <script type="module" src="./hard-coded-list.js"></script>
     <script type="module" src="./single-slot.js"></script>
     <script type="module" src="./single-slot-with-default.js"></script>
+    <script type="module" src="./named-slot.js"></script>
     <script type="module" src="./with-attributes.js"></script>
     <script type="module" src="./outgoing-event.js"></script>
     <script type="module" src="./incoming-event.js"></script>
@@ -106,6 +107,71 @@
     <single-slot-with-default>
       <hard-coded-list></hard-coded-list>
     </single-slot-with-default>
+
+    <!-- named-slot -->
+    <h2>named-slot</h2>
+    <!-- The <named-slot> component contains two named slots ("slot1" and
+         "slot2") and one unnamed slot.
+      -->
+
+    <h3>empty</h3>
+    <!-- This experiment explores the <named-slot> component without any child
+         nodes.
+         Result: the defaults for all three slots appear.
+      -->
+    <named-slot></named-slot>
+
+    <h3>unnamed</h3>
+    <!-- This experiment explores the <named-slot> component with unmarked
+         children.
+         Result: the unnamed slot is replaced with the children. The named slots
+         take on their defaults.
+      -->
+    <named-slot><span>Slotted contents (Unnamed)</span></named-slot>
+
+    <h3>slot1</h3>
+    <!-- This experiment explores the <named-slot> component with a node marked
+         for slotting in the "slot1" slot.
+         Result: the "slot1" slot is replaced with the children. The other two
+         slots take on their defaults.
+      -->
+    <named-slot><span slot="slot1">Slotted content (Slot 1)</span></named-slot>
+
+    <h3>slot1+slot2</h3>
+    <!-- This experiment explores the <named-slot> component with nodes marked
+         for slots "slot1" and "slot2".
+         Result: each marked node goes into their respective slots.
+      -->
+    <named-slot><span slot="slot1">Slotted content (Slot 1)</span><span slot="slot2">Slotted content (Slot 2)</span></named-slot>
+
+    <h3>slot1+slot2 with whitespace</h3>
+    <!-- This experiment explores the <named-slot> component with nodes marked
+         for slots "slot1" and "slot2" separated by whitespace nodes.
+         Result: each marked node goes into their respective slots, and the
+         whitespace nodes get distributed into the unnamed slot.
+      -->
+    <named-slot>
+      <span slot="slot1">Slotted content (Slot 1)</span>
+      <span slot="slot2">Slotted content (Slot 2)</span>
+    </named-slot>
+
+    <h3>interleaved</h3>
+    <!-- This experiment explores the <named-slot> component with marked and
+         unmarked nodes interleaved.
+         Result: each node is appended to their respective slots in source
+         order, including the whitespace nodes.
+      -->
+    <named-slot>
+      <span>!</span>
+      <span slot="slot1">A</span>
+      <span>@</span>
+      <span slot="slot1">B</span>
+      <span slot="slot1">C</span>
+      <span slot="slot2">1</span>
+      <span slot="slot1">D</span>
+      <span>#</span>
+      <span slot="slot2">2</span>
+    </named-slot>
 
     <!-- with-attributes -->
     <h2>with-attributes</h2>
