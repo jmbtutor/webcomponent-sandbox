@@ -30,4 +30,6 @@ Some notable findings are:
 
 * Attributes are coerced to the defined type, but properties are not.
 * Any kind of node, including whitespace nodes, will be translcuded in slots if they are present.
+  * This suggests that if there are named slots in a template, all slots should
+    be named to prevent accidental replacement of the unnamed slot.
 * Custom events must be listened for using `addEventListener`.
