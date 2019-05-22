@@ -4,7 +4,7 @@ class SingleSlot extends LitElement {
   render() {
     return html`
       <p>Before slot</p>
-      <slot>Default slot text</slot>
+      |<slot>Default slot text</slot>|
       <p>After slot</p>
     `;
   }
