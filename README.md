@@ -33,3 +33,5 @@ Some notable findings are:
   * This suggests that if there are named slots in a template, all slots should
     be named to prevent accidental replacement of the unnamed slot.
 * Custom events must be listened for using `addEventListener`.
+* If LitElement renders into the light DOM, it cannot use slots. The
+  recommended way is to accept the child nodes to "slot" as properties.
