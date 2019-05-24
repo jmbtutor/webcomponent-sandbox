@@ -16,6 +16,7 @@
     <script type="module" src="./outgoing-event.js"></script>
     <script type="module" src="./incoming-event.js"></script>
     <script type="module" src="./light-dom.js"></script>
+    <script type="module" src="./with-styles.js"></script>
 
     <style>
       output.event-output {
@@ -345,5 +346,58 @@
     <light-dom>
       <hard-coded-list></hard-coded-list>
     </light-dom>
+
+    <!-- with-styles -->
+    <h3>with-styles</h3>
+    <!-- The <with-styles> component contains an internal stylesheet targeting
+         p elements.
+      -->
+
+    <h2>with outside p</h2>
+    <!-- This experiment explores the <with-styles> component and how the styles
+         interact with elements outside the component.
+         Result: the styles are encapsulated and do not leak outside the shadow
+         DOM. That is, the outside p elements are not styled according to the
+         stylesheet defined in the component.
+      -->
+    <p>Outside p</p>
+    <p class="other">Outside other p</p>
+    <with-styles></with-styles>
+
+    <h2>host hidden</h2>
+    <!-- This experiment explores the <with-styles> component with the "hidden"
+         attribute. The component internally defines a style for
+         `:host([hidden])`, targeting the host element only when there is a
+         "hidden" attribute present.
+         Result: the element is hidden as defined in the stylesheet.
+      -->
+    |<with-styles hidden="hidden"></with-styles>|
+
+    <h2>styles from outside</h2>
+    <!-- This experiment explores the <with-styles> component and its
+         interaction with styles from the outside.
+         Result: the outside styles that select p elements do not select the p
+         elements in the shadow DOM and so are not applied. Properties that
+         inhert, like font-style and color, continue to inherit through the
+         shadow DOM and respect the cascade.
+      -->
+    <style>
+      .styles-from-outside-container {
+        color: green;
+      }
+
+      with-styles.styles-from-outside {
+        background-color: #CCCCCC;
+        font-style: italic;
+      }
+
+      with-styles.styles-from-outside p {
+        color: magenta;
+      }
+    </style>
+
+    <div class="styles-from-outside-container">
+      <with-styles class="styles-from-outside"></with-styles>
+    </div>
   </body>
 </html>
