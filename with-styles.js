@@ -28,7 +28,7 @@ class WithStyles extends LitElement {
         display: block;
       }
 
-      :host([hiddden]) {
+      :host([hidden]) {
         display: none;
       }
 
