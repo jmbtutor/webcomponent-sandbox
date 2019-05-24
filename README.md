@@ -35,3 +35,7 @@ Some notable findings are:
 * Custom events must be listened for using `addEventListener`.
 * If LitElement renders into the light DOM, it cannot use slots. The
   recommended way is to accept the child nodes to "slot" as properties.
+* Host display styles should be defined as the default display style is
+  `inline`. Block elements in an inline container produces unexpected
+  results, like no dimensions (so setting `background-color` on the
+  container does not appear to have any effect).
