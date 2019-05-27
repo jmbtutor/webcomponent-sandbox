@@ -17,6 +17,7 @@
     <script type="module" src="./incoming-event.js"></script>
     <script type="module" src="./light-dom.js"></script>
     <script type="module" src="./with-styles.js"></script>
+    <script type="module" src="./with-style-variables.js"></script>
 
     <style>
       output.event-output {
@@ -399,5 +400,42 @@
     <div class="styles-from-outside-container">
       <with-styles class="styles-from-outside"></with-styles>
     </div>
+
+    <!-- with-style-variables -->
+    <h2>with-style-variables</h2>
+    <!-- The <with-style-variables> component contains an internal stylesheet
+         that can be customized using custom properties.
+      -->
+
+    <h3>default</h3>
+    <!-- This experiment explores the <with-style-variables> component with its
+         default styles (i.e. no custom properties defined outside).
+         Result: the styles defined in the component are applied.
+      -->
+    <with-style-variables></with-style-variables>
+
+    <h3>override</h3>
+    <!-- This experiment explores the <with-style-variables> component with
+         custom properties set from the outside and allowing them to cascade.
+         Result: the custom properties cascade. The custom properties with
+         defaults set in the internal `:host` block are overridden when the
+         element host is selected and not when the property cascades from the
+         outside. Custom properties with local defaults cascade all the way down
+         and are applied.
+      -->
+      <style>
+        .with-style-variables-override-container {
+          --p-color: yellow;
+          --p-other2-color: magenta;
+        }
+
+        with-style-variables.with-style-variables-override {
+          --p-other1-color: green;
+          --p-other2-font-weight: normal;
+        }
+      </style>
+      <div class="with-style-variables-override-container">
+        <with-style-variables class="with-style-variables-override"></with-style-variables>
+      </div>
   </body>
 </html>
