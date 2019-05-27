@@ -39,3 +39,8 @@ Some notable findings are:
   `inline`. Block elements in an inline container produces unexpected
   results, like no dimensions (so setting `background-color` on the
   container does not appear to have any effect).
+* CSS custom properties are subject to the cascade. Properties defined
+  in a `:host` block will override any of the same properties set from
+  the outside, except when the properties are set on the host
+  itself (from the outside) due to specificity. Custom properties that
+  have defaults defined where they are used will work as expected.
